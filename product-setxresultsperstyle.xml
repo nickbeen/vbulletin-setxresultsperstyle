@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<product productid="setxresultsperstyle" active="1">
+	<title>Set X Results Per Style</title>
+	<description>Set different numbers of results (eg. posts per page) for another style.</description>
+	<version>1.0</version>
+	<url><![CDATA[http://www.vbulletin.org/forum/misc.php?do=productcheck&pid=setxresultsperstyle]]></url>
+	<versioncheckurl><![CDATA[http://www.vbulletin.org/forum/misc.php?do=productcheck&pid=setxresultsperstyle]]></versioncheckurl>
+	<dependencies>
+		<dependency dependencytype="vbulletin" minversion="3.7.0" maxversion="4.0.0" />
+	</dependencies>
+	<codes>
+	</codes>
+	<templates>
+	</templates>
+	<plugins>
+		<plugin active="1" executionorder="5">
+			<title>Set X Results Per Style</title>
+			<hookname>style_fetch</hookname>
+			<phpcode><![CDATA[if ($vbulletin->options['sxrps_on'] == 1){
+	if ($styleid == $vbulletin->options['sxrps_style']){
+		$vbulletin->options['albums_perpage'] = $vbulletin->options['sxrps_albumsperpage'];
+		$vbulletin->options['album_maxpicsperalbum'] = $vbulletin->options['sxrps_albummaxpicsperalbum'];
+		$vbulletin->options['album_pictures_perpage'] = $vbulletin->options['sxrps_albumpicturesperpage'];
+		$vbulletin->options['archive_threadsperpage'] = $vbulletin->options['sxrps_archivethreadsperpage'];
+		$vbulletin->options['archive_postsperpage'] = $vbulletin->options['sxrps_archivepostsperpage'];
+		$vbulletin->options['friendsperpage'] = $vbulletin->options['sxrps_friendsperpage'];
+		$vbulletin->options['gm_perpage'] = $vbulletin->options['sxrps_gmperpage'];
+		$vbulletin->options['gm_maxperpage'] = $vbulletin->options['sxrps_gmmaxperpage'];
+		$vbulletin->options['maxmultipage'] = $vbulletin->options['sxrps_maxmultipage'];
+		$vbulletin->options['maxposts'] = $vbulletin->options['sxrps_maxposts'];
+		$vbulletin->options['usermaxposts'] = $vbulletin->options['sxrps_usermaxposts'];
+		$vbulletin->options['maxthreads'] = $vbulletin->options['sxrps_maxthreads'];
+		$vbulletin->options['memberlistperpage'] = $vbulletin->options['sxrps_memberlistperpage'];
+		$vbulletin->options['minifriends_amount'] = $vbulletin->options['sxrps_minifriendsamount'];
+		$vbulletin->options['numavatarswide'] = $vbulletin->options['sxrps_numavatarswide'];
+		$vbulletin->options['numavatarsperpage'] = $vbulletin->options['sxrps_numavatarsperpage'];
+		$vbulletin->options['pagenavpages'] = $vbulletin->options['sxrps_pagenavpages'];
+		$vbulletin->options['pagenavs'] = $vbulletin->options['sxrps_pagenavs'];
+		$vbulletin->options['pc_perpage'] = $vbulletin->options['sxrps_pcperpage'];
+		$vbulletin->options['pc_maxperpage'] = $vbulletin->options['sxrps_pcmaxperpage'];
+		$vbulletin->options['pmperpage'] = $vbulletin->options['sxrps_pmperpage'];
+		$vbulletin->options['pmmaxperpage'] = $vbulletin->options['sxrps_pmmaxperpage'];
+		$vbulletin->options['profile_album_amount'] = $vbulletin->options['sxrps_profilealbumamount'];
+		$vbulletin->options['profilemaxvisitors'] = $vbulletin->options['sxrps_profilemaxvisitors'];
+		$vbulletin->options['searchperpage'] = $vbulletin->options['sxrps_searchperpage'];
+		$vbulletin->options['sg_perpage'] = $vbulletin->options['sxrps_sgperpage'];
+		$vbulletin->options['sg_maxperpage'] = $vbulletin->options['sxrps_maxperpage'];
+		$vbulletin->options['sgd_perpage'] = $vbulletin->options['sxrps_sgdperpage'];
+		$vbulletin->options['sgd_maxperpage'] = $vbulletin->options['sxrps_maxperpage'];
+		$vbulletin->options['showevents'] = $vbulletin->options['sxrps_showevents'];
+		$vbulletin->options['showuserrates'] = $vbulletin->options['sxrps_showuserrates'];
+		$vbulletin->options['smtotal'] = $vbulletin->options['sxrps_smtotal'];
+		$vbulletin->options['wysiwyg_smtotal'] = $vbulletin->options['sxrps_wysiwygsmtotal'];
+		$vbulletin->options['smcolumns'] = $vbulletin->options['sxrps_smcolumns'];
+		$vbulletin->options['tagcloud_tags'] = $vbulletin->options['sxrps_tagcloudperpage'];
+		$vbulletin->options['tagcloud_levels'] = $vbulletin->options['sxrps_tagcloudlevels'];
+		$vbulletin->options['vm_perpage'] = $vbulletin->options['sxrps_vmperpage'];
+		$vbulletin->options['vm_maxperpage'] = $vbulletin->options['sxrps_vmmaxperpage'];
+	}
+}]]></phpcode>
+		</plugin>
+	</plugins>
+	<phrases>
+		<phrasetype name="vBulletin Settings" fieldname="vbsettings">
+			<phrase name="setting_sxrps_albummaxpicsperalbum_desc" date="1262381711" username="nickbeen" version="1.0"><![CDATA[You may choose to limit the number of pictures that a user can have in one album. This is primarily useful for encouraging your users to have albums for smaller topics, but it does have minor performance considerations as well.]]></phrase>
+			<phrase name="setting_sxrps_albummaxpicsperalbum_title" date="1262381711" username="nickbeen" version="1.0"><![CDATA[Max pictures per album?]]></phrase>
+			<phrase name="setting_sxrps_albumpicturesperpage_desc" date="1262381692" username="nickbeen" version="1.0"><![CDATA[When viewing an album, this controls how many pictures are displayed before pagination occurs.]]></phrase>
+			<phrase name="setting_sxrps_albumpicturesperpage_title" date="1262381692" username="nickbeen" version="1.0"><![CDATA[Pictures per page?]]></phrase>
+			<phrase name="setting_sxrps_albumsperpage_desc" date="1262381656" username="nickbeen" version="1.0"><![CDATA[When listing multiple albums on one page, this controls how many will be displayed before pagination occurs.]]></phrase>
+			<phrase name="setting_sxrps_albumsperpage_title" date="1262381656" username="nickbeen" version="1.0"><![CDATA[Albums per page?]]></phrase>
+			<phrase name="setting_sxrps_archivepostsperpage_desc" date="1262381749" username="nickbeen" version="1.0"><![CDATA[The number of posts to display per page in the thread listing.]]></phrase>
+			<phrase name="setting_sxrps_archivepostsperpage_title" date="1262381749" username="nickbeen" version="1.0"><![CDATA[Posts per page in archive?]]></phrase>
+			<phrase name="setting_sxrps_archivethreadsperpage_desc" date="1262381738" username="nickbeen" version="1.0"><![CDATA[The number of threads to display per page in the threads listing. This is done on a per-forum basis.]]></phrase>
+			<phrase name="setting_sxrps_archivethreadsperpage_title" date="1262381738" username="nickbeen" version="1.0"><![CDATA[Threads per page in archive?]]></phrase>
+			<phrase name="setting_sxrps_friendsperpage_desc" date="1262382118" username="nickbeen" version="1.0"><![CDATA[The Amount of Friends to show "per page" on the large friends list.]]></phrase>
+			<phrase name="setting_sxrps_friendsperpage_title" date="1262382118" username="nickbeen" version="1.0"><![CDATA[Friends per page?]]></phrase>
+			<phrase name="setting_sxrps_gmmaxperpage_desc" date="1262381146" username="nickbeen" version="1.0"><![CDATA[This setting allows you to limit the number of messages users may display per page in the social groups]]></phrase>
+			<phrase name="setting_sxrps_gmmaxperpage_title" date="1262381146" username="nickbeen" version="1.0"><![CDATA[Max posts per page in social groups?]]></phrase>
+			<phrase name="setting_sxrps_gmperpage_desc" date="1262381110" username="nickbeen" version="1.0"><![CDATA[This setting allows you to define the default number of messages displayed per-page in social groups.]]></phrase>
+			<phrase name="setting_sxrps_gmperpage_title" date="1262381110" username="nickbeen" version="1.0"><![CDATA[Posts per page in social groups?]]></phrase>
+			<phrase name="setting_sxrps_maxmultipage_desc" date="1262380808" username="nickbeen" version="1.0"><![CDATA[When linking to multiple pages in the forum display, this allows you to set the cut-off point on which long posts stop adding more page numbers and are replaced by 'more...']]></phrase>
+			<phrase name="setting_sxrps_maxmultipage_title" date="1262380808" username="nickbeen" version="1.0"><![CDATA[Max links in pagenavigator?]]></phrase>
+			<phrase name="setting_sxrps_maxposts_desc" date="1262380873" username="nickbeen" version="1.0"><![CDATA[The number of posts to display on a thread page in linear or hybrid mode before splitting it over multiple pages.]]></phrase>
+			<phrase name="setting_sxrps_maxposts_title" date="1262380873" username="nickbeen" version="1.0"><![CDATA[Posts per page?]]></phrase>
+			<phrase name="setting_sxrps_maxthreads_desc" date="1262382070" username="nickbeen" version="1.0"><![CDATA[The number of threads to display on a forum page before splitting it over multiple pages.]]></phrase>
+			<phrase name="setting_sxrps_maxthreads_title" date="1262382070" username="nickbeen" version="1.0"><![CDATA[Threads per page?]]></phrase>
+			<phrase name="setting_sxrps_memberlistperpage_desc" date="1262382607" username="nickbeen" version="1.0"><![CDATA[The number of records per page that will be shown by default in the members list before the results are split over multiple pages.]]></phrase>
+			<phrase name="setting_sxrps_memberlistperpage_title" date="1262382607" username="nickbeen" version="1.0"><![CDATA[Members per page on memberlist?]]></phrase>
+			<phrase name="setting_sxrps_minifriendsamount_desc" date="1262382158" username="nickbeen" version="1.0"><![CDATA[The Number of Friends to display in the Small Friends Block on the Users' Profile Pages.]]></phrase>
+			<phrase name="setting_sxrps_minifriendsamount_title" date="1262382158" username="nickbeen" version="1.0"><![CDATA[Friends in profileblock?]]></phrase>
+			<phrase name="setting_sxrps_numavatarsperpage_desc" date="1262382198" username="nickbeen" version="1.0"><![CDATA[How many avatars do you want to display per-page on the 'Edit Avatar' page within the profile editor?]]></phrase>
+			<phrase name="setting_sxrps_numavatarsperpage_title" date="1262382198" username="nickbeen" version="1.0"><![CDATA[Avatars per page?]]></phrase>
+			<phrase name="setting_sxrps_numavatarswide_desc" date="1262382210" username="nickbeen" version="1.0"><![CDATA[How many columns of avatars do you wish to display to the user when selecting a pre-defined avatar?]]></phrase>
+			<phrase name="setting_sxrps_numavatarswide_title" date="1262382210" username="nickbeen" version="1.0"><![CDATA[Width of avatar column?]]></phrase>
+			<phrase name="setting_sxrps_on_desc" date="1262375223" username="nickbeen" version="1.0"><![CDATA[Select 'Yes' to turn this product on.]]></phrase>
+			<phrase name="setting_sxrps_on_title" date="1262375223" username="nickbeen" version="1.0"><![CDATA[Enable product?]]></phrase>
+			<phrase name="setting_sxrps_pagenavpages_desc" date="1262382518" username="nickbeen" version="1.0"><![CDATA[If a thread/forum (etc.) requires multiple pages to be displayed, this option selects how many page links either side of the current page are shown. Set this to 0 to display all pages.]]></phrase>
+			<phrase name="setting_sxrps_pagenavpages_title" date="1262382518" username="nickbeen" version="1.0"><![CDATA[Pages in pagenavigator?]]></phrase>
+			<phrase name="setting_sxrps_pagenavs_desc" date="1262382532" username="nickbeen" version="1.0"><![CDATA[If a thread/forum (etc.) requires multiple pages to be displayed, this option selects what pages can be jumped to relative to the current one. For example, by adding 10 to the list, links will appear for current page -10 and current page +10.]]></phrase>
+			<phrase name="setting_sxrps_pagenavs_title" date="1262382532" username="nickbeen" version="1.0"><![CDATA[Relative jumps in pagenavigator?]]></phrase>
+			<phrase name="setting_sxrps_pcmaxperpage_desc" date="1262382666" username="nickbeen" version="1.0"><![CDATA[This setting allows you to limit the number of picture comments users may display per page with a picture.]]></phrase>
+			<phrase name="setting_sxrps_pcmaxperpage_title" date="1262382666" username="nickbeen" version="1.0"><![CDATA[Max picture comments per page?]]></phrase>
+			<phrase name="setting_sxrps_pcperpage_desc" date="1262382651" username="nickbeen" version="1.0"><![CDATA[This setting allows you to define the default number of picture comments displayed per-page with a picture.]]></phrase>
+			<phrase name="setting_sxrps_pcperpage_title" date="1262382651" username="nickbeen" version="1.0"><![CDATA[Picture comments per page?]]></phrase>
+			<phrase name="setting_sxrps_pmmaxperpage_desc" date="1262381034" username="nickbeen" version="1.0"><![CDATA[This setting allows you to limit the number of messages users may display per page on the private messages folder view pages.]]></phrase>
+			<phrase name="setting_sxrps_pmmaxperpage_title" date="1262381034" username="nickbeen" version="1.0"><![CDATA[Max private messages per page?]]></phrase>
+			<phrase name="setting_sxrps_pmperpage_desc" date="1262380982" username="nickbeen" version="1.0"><![CDATA[This setting allows you to define the default number of messages displayed per-page on the private messages listings pages.]]></phrase>
+			<phrase name="setting_sxrps_pmperpage_title" date="1262380982" username="nickbeen" version="1.0"><![CDATA[Private messages per page?]]></phrase>
+			<phrase name="setting_sxrps_profilealbumamount_desc" date="1262381682" username="nickbeen" version="1.0"><![CDATA[The Maximum Number of Albums to Display on the Users' Profile Pages.]]></phrase>
+			<phrase name="setting_sxrps_profilealbumamount_title" date="1262381682" username="nickbeen" version="1.0"><![CDATA[Albums in profile?]]></phrase>
+			<phrase name="setting_sxrps_profilemaxvisitors_desc" date="1262382630" username="nickbeen" version="1.0"><![CDATA[Set an upper limit for the number of recent visitors to show. Recent visitor records are cleaned out on a regular basis, so keep this to a reasonably small number. Somewhere between 5 to 30 is ideal.]]></phrase>
+			<phrase name="setting_sxrps_profilemaxvisitors_title" date="1262382630" username="nickbeen" version="1.0"><![CDATA[Max visitors on profile?]]></phrase>
+			<phrase name="setting_sxrps_searchperpage_desc" date="1262382292" username="nickbeen" version="1.0"><![CDATA[Number of successful search results to display per page.]]></phrase>
+			<phrase name="setting_sxrps_searchperpage_title" date="1262382292" username="nickbeen" version="1.0"><![CDATA[Search results per page?]]></phrase>
+			<phrase name="setting_sxrps_sgdmaxperpage_desc" date="1262381494" username="nickbeen" version="1.0"><![CDATA[This setting allows you to limit the number of discussions users may display per page in a social group.]]></phrase>
+			<phrase name="setting_sxrps_sgdmaxperpage_title" date="1262381494" username="nickbeen" version="1.0"><![CDATA[Max discussions per page in social groups?]]></phrase>
+			<phrase name="setting_sxrps_sgdperpage_desc" date="1262381461" username="nickbeen" version="1.0"><![CDATA[This setting allows you to define the default number of discussions displayed per-page in a social group.]]></phrase>
+			<phrase name="setting_sxrps_sgdperpage_title" date="1262381461" username="nickbeen" version="1.0"><![CDATA[Discussions per page in social groups?]]></phrase>
+			<phrase name="setting_sxrps_sgmaxperpage_desc" date="1262381321" username="nickbeen" version="1.0"><![CDATA[This setting allows you to limit the number of groups users may display per page when listing social groups.]]></phrase>
+			<phrase name="setting_sxrps_sgmaxperpage_title" date="1262381321" username="nickbeen" version="1.0"><![CDATA[Max groups per page in social groups?]]></phrase>
+			<phrase name="setting_sxrps_sgperpage_desc" date="1262381254" username="nickbeen" version="1.0"><![CDATA[This setting allows you to define the default number of groups displayed per-page when searching social groups.]]></phrase>
+			<phrase name="setting_sxrps_sgperpage_title" date="1262381254" username="nickbeen" version="1.0"><![CDATA[Groups per page in social groups?]]></phrase>
+			<phrase name="setting_sxrps_showevents_desc" date="1262382234" username="nickbeen" version="1.0"><![CDATA[Choose the number of upcoming days that you wish to display upcoming events from.]]></phrase>
+			<phrase name="setting_sxrps_showevents_title" date="1262382234" username="nickbeen" version="1.0"><![CDATA[Events on forumhome?]]></phrase>
+			<phrase name="setting_sxrps_showuserrates_desc" date="1262382260" username="nickbeen" version="1.0"><![CDATA[Controls how many ratings to display in the user's control panel.]]></phrase>
+			<phrase name="setting_sxrps_showuserrates_title" date="1262382260" username="nickbeen" version="1.0"><![CDATA[Reputation ratings in user cp?]]></phrase>
+			<phrase name="setting_sxrps_smcolumns_desc" date="1262382349" username="nickbeen" version="1.0"><![CDATA[If the smiliebox is enabled, how many smilies should be shown per row of the box?]]></phrase>
+			<phrase name="setting_sxrps_smcolumns_title" date="1262382349" username="nickbeen" version="1.0"><![CDATA[Smilies per row?]]></phrase>
+			<phrase name="setting_sxrps_smtotal_desc" date="1262382329" username="nickbeen" version="1.0"><![CDATA[How many smilies should be displayed in the smiliebox before the user is prompted to click for the more smilies popup window?]]></phrase>
+			<phrase name="setting_sxrps_smtotal_title" date="1262382329" username="nickbeen" version="1.0"><![CDATA[Smilies in smiliebox?]]></phrase>
+			<phrase name="setting_sxrps_style_desc" date="1262381633" username="nickbeen" version="1.0"><![CDATA[Which style should be associated with the settings below?]]></phrase>
+			<phrase name="setting_sxrps_style_title" date="1262381633" username="nickbeen" version="1.0"><![CDATA[Which style?]]></phrase>
+			<phrase name="setting_sxrps_tagcloud_levels_desc" date="1262382428" username="nickbeen" version="1.0"><![CDATA[The number of levels to be shown in the tag cloud. By default, there are 5 levels named level1 to level5, with the font size growing from its smallest size at level 1 to its largest at level 5. Increasing this value above 5 requires a template change.]]></phrase>
+			<phrase name="setting_sxrps_tagcloud_levels_title" date="1262382428" username="nickbeen" version="1.0"><![CDATA[Levels in tagcloud?]]></phrase>
+			<phrase name="setting_sxrps_tagcloud_tags_desc" date="1262382403" username="nickbeen" version="1.0"><![CDATA[The maximum number of tags to display in the tag cloud.]]></phrase>
+			<phrase name="setting_sxrps_tagcloud_tags_title" date="1262382403" username="nickbeen" version="1.0"><![CDATA[Tags in tagcloud?]]></phrase>
+			<phrase name="setting_sxrps_usermaxposts_desc" date="1262380918" username="nickbeen" version="1.0"><![CDATA[If you would like to allow the user to set their own maximum posts per thread then give the options separated by commas. Leave this option blank to force users to use the 'Maximum Displayed Posts Before Page Split' setting above this option.]]></phrase>
+			<phrase name="setting_sxrps_usermaxposts_title" date="1262380918" username="nickbeen" version="1.0"><![CDATA[Max posts per page?]]></phrase>
+			<phrase name="setting_sxrps_vmmaxperpage_desc" date="1262382579" username="nickbeen" version="1.0"><![CDATA[This setting allows you to limit the number of messages users may display per page in the user profiles.]]></phrase>
+			<phrase name="setting_sxrps_vmmaxperpage_title" date="1262382579" username="nickbeen" version="1.0"><![CDATA[Max visitor messages per page?]]></phrase>
+			<phrase name="setting_sxrps_vmperpage_desc" date="1262382562" username="nickbeen" version="1.0"><![CDATA[This setting allows you to define the default number of messages displayed per-page in the user profiles.]]></phrase>
+			<phrase name="setting_sxrps_vmperpage_title" date="1262382562" username="nickbeen" version="1.0"><![CDATA[Visitor messages per page?]]></phrase>
+			<phrase name="setting_sxrps_wysiwygsmtotal_desc" date="1262382372" username="nickbeen" version="1.0"><![CDATA[Use this option to set the number of smilies that will appear in the WYSIWYG popup smilie menu before the 'show all smilies' link is displayed.]]></phrase>
+			<phrase name="setting_sxrps_wysiwygsmtotal_title" date="1262382372" username="nickbeen" version="1.0"><![CDATA[Smilies in WYSIWYG smiliebox?]]></phrase>
+			<phrase name="settinggroup_sxrps" date="1262375046" username="nickbeen" version="1.0"><![CDATA[Set X Results Per Style]]></phrase>
+		</phrasetype>
+	</phrases>
+	<options>
+		<settinggroup name="sxrps" displayorder="65535">
+			<setting varname="sxrps_on" displayorder="10">
+				<datatype>free</datatype>
+				<optioncode>yesno</optioncode>
+				<defaultvalue>0</defaultvalue>
+			</setting>
+			<setting varname="sxrps_style" displayorder="20">
+				<datatype>number</datatype>
+				<optioncode>select:eval
+$options = fetch_style_title_options_array();</optioncode>
+				<defaultvalue>1</defaultvalue>
+			</setting>
+			<setting varname="sxrps_albumsperpage" displayorder="30">
+				<datatype>number</datatype>
+				<defaultvalue>10</defaultvalue>
+			</setting>
+			<setting varname="sxrps_albumpicturesperpage" displayorder="40">
+				<datatype>number</datatype>
+				<defaultvalue>10</defaultvalue>
+			</setting>
+			<setting varname="sxrps_albummaxpicsperalbum" displayorder="50">
+				<datatype>number</datatype>
+				<defaultvalue>100</defaultvalue>
+			</setting>
+			<setting varname="sxrps_profilealbumamount" displayorder="50">
+				<datatype>number</datatype>
+				<defaultvalue>1</defaultvalue>
+			</setting>
+			<setting varname="sxrps_archivethreadsperpage" displayorder="70">
+				<datatype>number</datatype>
+				<defaultvalue>100</defaultvalue>
+			</setting>
+			<setting varname="sxrps_archivepostsperpage" displayorder="80">
+				<datatype>number</datatype>
+				<defaultvalue>100</defaultvalue>
+			</setting>
+			<setting varname="sxrps_numavatarswide" displayorder="90">
+				<datatype>number</datatype>
+				<defaultvalue>2</defaultvalue>
+			</setting>
+			<setting varname="sxrps_numavatarsperpage" displayorder="100">
+				<datatype>number</datatype>
+				<defaultvalue>10</defaultvalue>
+			</setting>
+			<setting varname="sxrps_showevents" displayorder="110">
+				<datatype>number</datatype>
+				<defaultvalue>10</defaultvalue>
+			</setting>
+			<setting varname="sxrps_showuserrates" displayorder="120">
+				<datatype>number</datatype>
+				<defaultvalue>10</defaultvalue>
+			</setting>
+			<setting varname="sxrps_profilemaxvisitors" displayorder="130">
+				<datatype>number</datatype>
+				<defaultvalue>10</defaultvalue>
+			</setting>
+			<setting varname="sxrps_pcperpage" displayorder="140">
+				<datatype>number</datatype>
+				<defaultvalue>10</defaultvalue>
+			</setting>
+			<setting varname="sxrps_pcmaxperpage" displayorder="150">
+				<datatype>number</datatype>
+				<defaultvalue>100</defaultvalue>
+			</setting>
+			<setting varname="sxrps_vmperpage" displayorder="160">
+				<datatype>number</datatype>
+				<defaultvalue>50</defaultvalue>
+			</setting>
+			<setting varname="sxrps_vmmaxperpage" displayorder="170">
+				<datatype>number</datatype>
+				<defaultvalue>100</defaultvalue>
+			</setting>
+			<setting varname="sxrps_memberlistperpage" displayorder="180">
+				<datatype>number</datatype>
+				<defaultvalue>100</defaultvalue>
+			</setting>
+			<setting varname="sxrps_searchperpage" displayorder="190">
+				<datatype>number</datatype>
+				<defaultvalue>10</defaultvalue>
+			</setting>
+			<setting varname="sxrps_smtotal" displayorder="200">
+				<datatype>number</datatype>
+				<defaultvalue>10</defaultvalue>
+			</setting>
+			<setting varname="sxrps_smcolumns" displayorder="210">
+				<datatype>number</datatype>
+				<defaultvalue>2</defaultvalue>
+			</setting>
+			<setting varname="sxrps_wysiwygsmtotal" displayorder="220">
+				<datatype>number</datatype>
+				<defaultvalue>10</defaultvalue>
+			</setting>
+			<setting varname="sxrps_tagcloud_tags" displayorder="230">
+				<datatype>number</datatype>
+				<defaultvalue>100</defaultvalue>
+			</setting>
+			<setting varname="sxrps_tagcloud_levels" displayorder="240">
+				<datatype>number</datatype>
+				<defaultvalue>5</defaultvalue>
+			</setting>
+			<setting varname="sxrps_pagenavpages" displayorder="250">
+				<datatype>number</datatype>
+				<defaultvalue>10</defaultvalue>
+			</setting>
+			<setting varname="sxrps_pagenavs" displayorder="260">
+				<datatype>number</datatype>
+				<defaultvalue>10</defaultvalue>
+			</setting>
+			<setting varname="sxrps_maxmultipage" displayorder="270">
+				<datatype>number</datatype>
+				<defaultvalue>5</defaultvalue>
+			</setting>
+			<setting varname="sxrps_maxposts" displayorder="280">
+				<datatype>number</datatype>
+				<defaultvalue>50</defaultvalue>
+			</setting>
+			<setting varname="sxrps_usermaxposts" displayorder="290">
+				<datatype>number</datatype>
+				<defaultvalue>100</defaultvalue>
+			</setting>
+			<setting varname="sxrps_pmperpage" displayorder="300">
+				<datatype>number</datatype>
+				<defaultvalue>50</defaultvalue>
+			</setting>
+			<setting varname="sxrps_pmmaxperpage" displayorder="310">
+				<datatype>number</datatype>
+				<defaultvalue>100</defaultvalue>
+			</setting>
+			<setting varname="sxrps_gmperpage" displayorder="320">
+				<datatype>number</datatype>
+				<defaultvalue>50</defaultvalue>
+			</setting>
+			<setting varname="sxrps_gmmaxperpage" displayorder="330">
+				<datatype>number</datatype>
+				<defaultvalue>100</defaultvalue>
+			</setting>
+			<setting varname="sxrps_sgperpage" displayorder="340">
+				<datatype>number</datatype>
+				<defaultvalue>50</defaultvalue>
+			</setting>
+			<setting varname="sxrps_sgmaxperpage" displayorder="350">
+				<datatype>number</datatype>
+				<defaultvalue>100</defaultvalue>
+			</setting>
+			<setting varname="sxrps_sgdperpage" displayorder="360">
+				<datatype>number</datatype>
+				<defaultvalue>50</defaultvalue>
+			</setting>
+			<setting varname="sxrps_sgdmaxperpage" displayorder="370">
+				<datatype>number</datatype>
+				<defaultvalue>100</defaultvalue>
+			</setting>
+			<setting varname="sxrps_maxthreads" displayorder="380">
+				<datatype>number</datatype>
+				<defaultvalue>25</defaultvalue>
+			</setting>
+			<setting varname="sxrps_friendsperpage" displayorder="390">
+				<datatype>number</datatype>
+				<defaultvalue>20</defaultvalue>
+			</setting>
+			<setting varname="sxrps_minifriendsamount" displayorder="400">
+				<datatype>number</datatype>
+				<defaultvalue>4</defaultvalue>
+			</setting>
+		</settinggroup>
+	</options>
+	<helptopics>
+	</helptopics>
+	<cronentries>
+	</cronentries>
+	<faqentries>
+	</faqentries>
+</product>
